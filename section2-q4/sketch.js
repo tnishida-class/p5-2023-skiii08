@@ -41,7 +41,8 @@ for(let i = 0; i < c1.length; i++){
  }
 }
 
-/*とりあえず力技で描いたやつ
+/*とりあえず力技で描いたやつ。
+
 drawRect(red, 0);
 drawRect(white,20);
 drawRect(blue,40);
@@ -52,6 +53,7 @@ drawTriangle(green,18);
 drawTriangle(yellow,5);
 drawTriangle(black,0);
 }
+繰り返しの授業やから無理やり繰り返しで描いたけど正直こっちのが楽
 */
 
 
