@@ -6,13 +6,13 @@ let cS = 0.6; //定速
 let maxS = 1.6; //最大速度
 let minS = 0.3//最小速度
 function setup(){
-  createCanvas(200, 200);
+createCanvas(200, 200);
 }
 function drawEllipse(p){ //円バージョン
   background(160, 192, 255); 
   ellipse(width / 2, height / 2, size*i/100); 
    //sizeに縮尺率を掛けて大きさを変える        
-  i += p*speed; //縮尺率が速く変わればサイズも速く変わる
+i += p*speed; //縮尺率が速く変わればサイズも速く変わる
 }
 function drawHeart(p){ //ハートバージョン
   background(160, 192, 255);
@@ -33,7 +33,7 @@ function draw(){
   }else if(keyIsDown(DOWN_ARROW)){
     changeSpeed(-0.005,minS,cS)
   }else {
-    if(speed < cS){  //徐々に定速に戻す工程
+    if(speed < cS){  //徐々に定速に戻す
       speed += 0.005;  
     }else if(speed > cS){
       speed -= 0.005; 
@@ -47,7 +47,7 @@ function draw(){
     drawHeart(-1);
     //drawEllipse(-1);
   }
- if( i >= 100){flag = false;}//サイズが100％を超えたら、flagが切り替わり縮小に転じる。
+ if( i >= 100){flag = false;}//サイズが100％を超えたら、縮小に転じる。
   //ここで>=なのは、speedをいじった場合、iがちょうど100にならず、そのまま拡大を続けるバグが起きたため。
  if( i <= 90){flag = true;}
   
