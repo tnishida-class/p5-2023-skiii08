@@ -17,6 +17,7 @@ let startScreen = true;
 
 //その他の必要な変数
 let score = 0;
+let life = 3;
 let leftPressed = false;
 let rightPressed = false;
 
@@ -105,13 +106,27 @@ function displayGameScreen() {
   }
     //星と地面が当たると、ゲームの状態変数が代わり、ゲームオーバー画面が表示
   if (hitsGround(starY)) {
+      //ライフは星と地面が当たるたびにカウント
+    life --;
+      //失敗回数が３回以下の場合はただ星がリセットされるだけ
+    if(life > 0){
+      resetStar();
+    }
+      //三回目の失敗のみゲームオーバー
+    if(life == 0){
     gameover = true;
+    }
   }
    
     //画面右上、スコアの表示
   textSize(20);
   fill(255);
   text("Score: " + score, width - 100, 30);
+    //スコアの下にライフの表示、lifeの変数の値に連動
+  for(let i = 0; i < life; i++){
+    text("💓",width -20- i*30, 60);
+  }
+  
 }
 
  //ボックスの位置、スピードなどの基本設定
@@ -145,9 +160,10 @@ function moveBox() {
 function resetStar() {
   starX = width / 2;
   starY = 0;
-  starSpeed = 2;
   starSize = 15;
-  starXSpeed = 5;
+    // 点数が増えるごとに少しずつ速くする
+  starXSpeed = 5 + 0.2 * score; 
+  starSpeed = 2 + 0.15 * score; 
 }
 //星を描く用、授業からの引用、直後のdisplayStarで利用
 function star(cx, cy, r) {
@@ -182,6 +198,7 @@ function moveStar() {
     starXSpeed *= -1;
   }
 }
+
 
 //boxとstarの当たり判定
 function hits(x1, y1, size1, x2, y2, size2) {
