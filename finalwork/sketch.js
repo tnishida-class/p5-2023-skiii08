@@ -29,7 +29,7 @@ function setup() {
 
 //状態変数でスタート画面⇔ゲーム画面⇔リスタート画面を切り替える
 function draw() {
-  background(100);
+  background(0,102,34);
 
   if (startScreen) {
       // スタート画面の表示（初期状態）
@@ -74,7 +74,7 @@ function keyReleased() {
 //スタート画面の中身
 function displayStartScreen() {
   textSize(32);
-  fill(255);
+  fill(200,156,51);
   textAlign(CENTER, CENTER);  //⇒文字列を中央ぞろえにする
   text("Press ENTER to start", width / 2, height / 2);
 }
@@ -136,6 +136,7 @@ function resetGame() {
   boxY = height - 25;
   boxSpeed = 3;
   boxSize = 30;
+  life = 3;
     //ボックスをリセットするとき、同時に星もリセット
   resetStar();
 }
@@ -143,7 +144,7 @@ function resetGame() {
 function displayBox() {
   fill(255);
   textAlign(CENTER, CENTER);
-  textSize(40);
+  textSize(50);
   text("🎁", boxX, boxY);
 }
 //一定の速度で動き続けるboxの設定
@@ -162,7 +163,7 @@ function resetStar() {
   starY = 0;
   starSize = 15;
     // 点数が増えるごとに少しずつ速くする
-  starXSpeed = 5 + 0.2 * score; 
+  starXSpeed = 5 + 0.15 * score; 
   starSpeed = 2 + 0.15 * score; 
 }
 //星を描く用、授業からの引用、直後のdisplayStarで利用

@@ -1,28 +1,8 @@
 // テキスト「関数を作る(2) 結果を戻す関数」～「総仕上げ：カレンダーを描画しよう」
 function setup(){
   createCanvas(200, 200);
-  //calendar(2019, 10);
 
-  /*
-  // isLeapYear の動作確認のため console に出力しています
-  for(let i = 2000; i <= 2100; i++){
-    if(isLeapYear(i)){
-      console.log(i + "年はうるう年です");
-    }
-    else{
-      console.log(i + "年はうるう年ではありません");
-    }
-  }
-}
-
-
-function calendar(y, m){
-  let dow = dayOfWeek(y, m, 1);
-  for(let d = 1; d <= daysInMonth(y, m); d++){
-    // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
-  }
-}
-*/
+  
 
 const mounthNumber = [1,4,3,6,1,4,6,3,5,0,3,5];
 const dateNumber = ["日曜","月曜","火曜","水曜","木曜","金曜","土曜"];
@@ -53,7 +33,7 @@ function dayOfWeek(y, m, d){
 }
 
 dayOfWeek(2015, 5, 29)
-
+}
 
 
 
@@ -102,4 +82,4 @@ function dayOfWeekAsString(dow){
   return a[dow];
 }
 *///
-}
+
