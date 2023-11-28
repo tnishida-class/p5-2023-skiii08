@@ -7,7 +7,7 @@ let boxSize;
 //星に関する変数
 let starX;
 let starY;
-let starSpeed;
+let starYSpeed;
 let starSize;
 let starXSpeed;
 
@@ -77,6 +77,22 @@ function displayStartScreen() {
   fill(200,156,51);
   textAlign(CENTER, CENTER);  //⇒文字列を中央ぞろえにする
   text("Press ENTER to start", width / 2, height / 2);
+  textSize(44);
+  text("🎄",width/5-5,height/2);
+  text("🎄",width/5+130,height/3);
+  text("🎄",width/5+400,height/4);
+  text("🎄",width/5-50,height/5);
+  text("🎄",width/5+250,height/4+250);
+  text("🎄",width/5+100,height/3+300);
+  text("🎄",width/5+300,height/2-270);
+  text("🎄",width*4/5+70,height/2-55);
+  text("🎅",width*4/5+15,height/2);
+  text("🎅",width*4/5+200,height/3+200);
+  text("🎅",width*4/5-320,height/4-100);
+  text("🎅",width*4/5-400,height/3+30);
+  text("🎅",width*4/5+10,height/2+250);
+  text("🎅",width*4/5-400,height/5+350);
+  text("🎅",width*4/5-100,height/5+50);
 }
 //ゲームオーバー画面の中身
 function displayGameOverScreen() {
@@ -90,6 +106,14 @@ function displayGameOverScreen() {
     //スコアとリスタート案内を表示
   text("Score: " + score, width / 2, height / 2 + 40);
   text("Press ENTER to restart", width / 2, height / 2 + 80);
+  textSize(60);
+  text("🦌",width/2-150,height/2+200);
+  text("🦌",width/2-100,height/2+200);
+  text("🦌",width/2-50,height/2+200);
+  text("🛷",width/2+100,height/2+200);
+  fill(212,255,254);
+  rect(0,height/2+225,width,height-height/2+225);
+  text("🌕",width/2+150,height/2-150);
 }
 
 //ゲーム中の中身
@@ -164,7 +188,7 @@ function resetStar() {
   starSize = 15;
     // 点数が増えるごとに少しずつ速くする
   starXSpeed = 5 + 0.15 * score; 
-  starSpeed = 2 + 0.15 * score; 
+  starYSpeed = 2 + 0.15 * score; 
 }
 //星を描く用、授業からの引用、直後のdisplayStarで利用
 function star(cx, cy, r) {
@@ -187,7 +211,7 @@ function displayStar() {
 //星の動き
 function moveStar() {
     //starは一定速度落ち続ける
-  starY += starSpeed;   
+  starY += starYSpeed;   
     //左右キーの状態変数により押されている時間のみx座標が上下する
   if (leftPressed) {
     starX -= starXSpeed;
