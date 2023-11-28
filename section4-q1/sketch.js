@@ -15,10 +15,19 @@ function setup(){
   for(let i = 0; i < n; i++){ line(0, height * i / n, width, height * i / n); }
 
   // ここからが本番
-  fill(0);
-  const dx = width / scores.length;
-  let px, py; // 線を引くために一つ前の点を覚えておく変数
+  // 線を引くために一つ前の点を覚えておく変数
+  let px, py;
   for(let i = 0; i < scores.length; i++){
-    // BLANK[1]
+    const dx = width / scores.length;
+    const h = height * scores[i] / 100;
+    fill(0);
+    ellipse(i * dx + 10, height - h, 10)
+    px = i+1;
+  py =height - (height * scores[i+1] / 100);
+   line(i * dx + 10,height - h, px*dx+10,py);
   }
+
+  
+  
+ 
 }
